@@ -55,7 +55,6 @@ exports[`Sidebar SidebarDropdown can open "Switch Organization" sub-menu 1`] = `
                 "alignItems": "center",
               }
             }
-            target="_self"
             to="/organizations/new/"
           >
             <Link
@@ -67,7 +66,6 @@ exports[`Sidebar SidebarDropdown can open "Switch Organization" sub-menu 1`] = `
                   "alignItems": "center",
                 }
               }
-              target="_self"
               to="/organizations/new/"
             >
               <a
@@ -79,7 +77,6 @@ exports[`Sidebar SidebarDropdown can open "Switch Organization" sub-menu 1`] = `
                     "alignItems": "center",
                   }
                 }
-                target="_self"
               >
                 <MenuItemLabel
                   hasMenu={false}
@@ -318,21 +315,18 @@ exports[`Sidebar SidebarDropdown can open Sidebar org/name dropdown menu 1`] = `
         >
           <Link
             className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
-            target="_self"
             to="/settings/org-slug/"
           >
             <Link
               className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
               onlyActiveOnIndex={false}
               style={Object {}}
-              target="_self"
               to="/settings/org-slug/"
             >
               <a
                 className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
                 onClick={[Function]}
                 style={Object {}}
-                target="_self"
               >
                 <MenuItemLabel
                   hasMenu={false}
@@ -361,21 +355,18 @@ exports[`Sidebar SidebarDropdown can open Sidebar org/name dropdown menu 1`] = `
         >
           <Link
             className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
-            target="_self"
             to="/settings/org-slug/teams/"
           >
             <Link
               className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
               onlyActiveOnIndex={false}
               style={Object {}}
-              target="_self"
               to="/settings/org-slug/teams/"
             >
               <a
                 className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
                 onClick={[Function]}
                 style={Object {}}
-                target="_self"
               >
                 <MenuItemLabel
                   hasMenu={false}
@@ -773,21 +764,18 @@ exports[`Sidebar SidebarDropdown can open Sidebar org/name dropdown menu 1`] = `
           >
             <Link
               className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
-              target="_self"
               to="/settings/account/"
             >
               <Link
                 className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
                 onlyActiveOnIndex={false}
                 style={Object {}}
-                target="_self"
                 to="/settings/account/"
               >
                 <a
                   className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
                   onClick={[Function]}
                   style={Object {}}
-                  target="_self"
                 >
                   <MenuItemLabel
                     hasMenu={false}
@@ -816,21 +804,18 @@ exports[`Sidebar SidebarDropdown can open Sidebar org/name dropdown menu 1`] = `
           >
             <Link
               className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
-              target="_self"
               to="/settings/account/api/"
             >
               <Link
                 className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
                 onlyActiveOnIndex={false}
                 style={Object {}}
-                target="_self"
                 to="/settings/account/api/"
               >
                 <a
                   className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
                   onClick={[Function]}
                   style={Object {}}
-                  target="_self"
                 >
                   <MenuItemLabel
                     hasMenu={false}
@@ -958,26 +943,26 @@ exports[`Sidebar SidebarHelp can toggle help menu 1`] = `
       </StyledSidebarMenuItemLink>
     </SidebarMenuItem>
     <SidebarMenuItem
-      href="https://forum.sentry.io/"
       openInNewTab={true}
+      to="https://forum.sentry.io/"
     >
       <StyledSidebarMenuItemLink
-        href="https://forum.sentry.io/"
         openInNewTab={true}
+        to="https://forum.sentry.io/"
       >
         <SidebarMenuItemLink
           className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
-          href="https://forum.sentry.io/"
           openInNewTab={true}
+          to="https://forum.sentry.io/"
         >
-          <Link
+          <ForwardRef
             className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
             href="https://forum.sentry.io/"
-            target="_blank"
           >
             <a
               className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
               href="https://forum.sentry.io/"
+              rel="noreferrer noopener"
               target="_blank"
             >
               <MenuItemLabel
@@ -990,31 +975,31 @@ exports[`Sidebar SidebarHelp can toggle help menu 1`] = `
                 </span>
               </MenuItemLabel>
             </a>
-          </Link>
+          </ForwardRef>
         </SidebarMenuItemLink>
       </StyledSidebarMenuItemLink>
     </SidebarMenuItem>
     <SidebarMenuItem
-      href="https://status.sentry.io/"
       openInNewTab={true}
+      to="https://status.sentry.io/"
     >
       <StyledSidebarMenuItemLink
-        href="https://status.sentry.io/"
         openInNewTab={true}
+        to="https://status.sentry.io/"
       >
         <SidebarMenuItemLink
           className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
-          href="https://status.sentry.io/"
           openInNewTab={true}
+          to="https://status.sentry.io/"
         >
-          <Link
+          <ForwardRef
             className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
             href="https://status.sentry.io/"
-            target="_blank"
           >
             <a
               className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
               href="https://status.sentry.io/"
+              rel="noreferrer noopener"
               target="_blank"
             >
               <MenuItemLabel
@@ -1027,7 +1012,7 @@ exports[`Sidebar SidebarHelp can toggle help menu 1`] = `
                 </span>
               </MenuItemLabel>
             </a>
-          </Link>
+          </ForwardRef>
         </SidebarMenuItemLink>
       </StyledSidebarMenuItemLink>
     </SidebarMenuItem>
@@ -1445,111 +1430,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                     "/settings/account/api/",
                                   ],
                                   Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
                                     "/settings/org-slug/support/",
                                   ],
                                   Array [
@@ -1569,146 +1449,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                   ],
                                 ],
                                 "results": Array [
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
                                   Object {
                                     "type": "return",
                                     "value": undefined,
@@ -2107,111 +1847,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                     "/settings/account/api/",
                                   ],
                                   Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
                                     "/settings/org-slug/support/",
                                   ],
                                   Array [
@@ -2231,146 +1866,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                   ],
                                 ],
                                 "results": Array [
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
                                   Object {
                                     "type": "return",
                                     "value": undefined,
@@ -2769,111 +2264,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                     "/settings/account/api/",
                                   ],
                                   Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
                                     "/settings/org-slug/support/",
                                   ],
                                   Array [
@@ -2893,146 +2283,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                   ],
                                 ],
                                 "results": Array [
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
                                   Object {
                                     "type": "return",
                                     "value": undefined,
@@ -3501,111 +2751,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                     "/settings/account/api/",
                                   ],
                                   Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
                                     "/settings/org-slug/support/",
                                   ],
                                   Array [
@@ -3625,146 +2770,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                   ],
                                 ],
                                 "results": Array [
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
                                   Object {
                                     "type": "return",
                                     "value": undefined,
@@ -4236,111 +3241,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                     "/settings/account/api/",
                                   ],
                                   Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
                                     "/settings/org-slug/support/",
                                   ],
                                   Array [
@@ -4360,146 +3260,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                   ],
                                 ],
                                 "results": Array [
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
                                   Object {
                                     "type": "return",
                                     "value": undefined,
@@ -4984,111 +3744,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                     "/settings/account/api/",
                                   ],
                                   Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/projects/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/issues/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/releases/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/user-feedback/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/activity/",
-                                  ],
-                                  Array [
-                                    "/organizations/org-slug/stats/",
-                                  ],
-                                  Array [
-                                    "/settings/org-slug/",
-                                  ],
-                                  Array [
                                     "/settings/org-slug/support/",
                                   ],
                                   Array [
@@ -5108,146 +3763,6 @@ exports[`Sidebar can have onboarding feature 1`] = `
                                   ],
                                 ],
                                 "results": Array [
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
-                                  Object {
-                                    "type": "return",
-                                    "value": undefined,
-                                  },
                                   Object {
                                     "type": "return",
                                     "value": undefined,
@@ -5896,21 +4411,18 @@ exports[`Sidebar renders without org and router 1`] = `
           >
             <Link
               className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
-              target="_self"
               to="/settings/account/"
             >
               <Link
                 className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
                 onlyActiveOnIndex={false}
                 style={Object {}}
-                target="_self"
                 to="/settings/account/"
               >
                 <a
                   className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
                   onClick={[Function]}
                   style={Object {}}
-                  target="_self"
                 >
                   <MenuItemLabel
                     hasMenu={false}
@@ -5939,21 +4451,18 @@ exports[`Sidebar renders without org and router 1`] = `
           >
             <Link
               className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
-              target="_self"
               to="/settings/account/api/"
             >
               <Link
                 className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
                 onlyActiveOnIndex={false}
                 style={Object {}}
-                target="_self"
                 to="/settings/account/api/"
               >
                 <a
                   className="css-1eunyni-StyledSidebarMenuItemLink eev51g21"
                   onClick={[Function]}
                   style={Object {}}
-                  target="_self"
                 >
                   <MenuItemLabel
                     hasMenu={false}

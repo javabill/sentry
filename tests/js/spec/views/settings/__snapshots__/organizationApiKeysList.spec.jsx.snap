@@ -453,15 +453,22 @@ exports[`OrganizationApiKeysList renders 1`] = `
                             priority="primary"
                             stopPropagation={false}
                           >
-                            <a
+                            <Link
                               className="btn btn-default btn-sm"
                               onClick={[Function]}
                               title="Remove API Key?"
                             >
-                              <span
-                                className="icon-trash"
-                              />
-                            </a>
+                              <a
+                                className="btn btn-default btn-sm"
+                                href="#"
+                                onClick={[Function]}
+                                title="Remove API Key?"
+                              >
+                                <span
+                                  className="icon-trash"
+                                />
+                              </a>
+                            </Link>
                             <Modal
                               animation={false}
                               autoFocus={true}

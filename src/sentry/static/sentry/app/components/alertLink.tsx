@@ -1,26 +1,24 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import {LocationDescriptor} from 'history';
 
-import Link from 'app/components/links/link';
+import Link, {LinkProps} from 'app/components/links/link';
 import InlineSvg from 'app/components/inlineSvg';
 import space from 'app/styles/space';
 
 type Size = 'small' | 'normal';
 type Priority = 'info' | 'warning' | 'success' | 'error' | 'muted';
 
-type PropsWithHref = {href: string};
-type PropsWithTo = {to: LocationDescriptor};
 type OtherProps = {
   icon?: string;
   onClick?: (e: React.MouseEvent) => void;
-};
+} & Pick<LinkProps, 'to'>;
+
 type DefaultProps = {
   size: Size;
   priority: Priority;
 };
 
-type Props = (PropsWithHref | PropsWithTo) & OtherProps & DefaultProps;
+type Props = OtherProps & DefaultProps;
 
 export default class AlertLink extends React.Component<Props> {
   static defaultProps: DefaultProps = {
@@ -29,15 +27,9 @@ export default class AlertLink extends React.Component<Props> {
   };
 
   render() {
-    const {size, priority, icon, children, onClick} = this.props;
+    const {size, to, priority, icon, children, onClick} = this.props;
     return (
-      <StyledLink
-        to={(this.props as PropsWithTo).to}
-        href={(this.props as PropsWithHref).href}
-        onClick={onClick}
-        size={size}
-        priority={priority}
-      >
+      <StyledLink to={to} onClick={onClick} size={size} priority={priority}>
         {icon && <StyledInlineSvg src={icon} size="1.5em" spacingSize={size} />}
         <AlertLinkText>{children}</AlertLinkText>
         <InlineSvg src="icon-chevron-right" size="1em" />

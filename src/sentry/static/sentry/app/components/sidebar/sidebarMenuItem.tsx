@@ -11,14 +11,11 @@ type Props = {
   children: React.ReactNode;
 } & SidebarMenuItemLinkProps;
 
-const SidebarMenuItem = ({to, href, children, ...props}: Props) => {
-  const hasMenu = !to && !href;
-  return (
-    <StyledSidebarMenuItemLink to={to} href={href} {...props}>
-      <MenuItemLabel hasMenu={hasMenu}>{children}</MenuItemLabel>
-    </StyledSidebarMenuItemLink>
-  );
-};
+const SidebarMenuItem = ({to, children, ...props}: Props) => (
+  <StyledSidebarMenuItemLink to={to} {...props}>
+    <MenuItemLabel hasMenu={!to}>{children}</MenuItemLabel>
+  </StyledSidebarMenuItemLink>
+);
 
 const menuItemStyles = (p: SidebarMenuItemLinkProps & {theme: Theme}) => css`
   color: ${p.theme.gray5};
@@ -29,7 +26,7 @@ const menuItemStyles = (p: SidebarMenuItemLinkProps & {theme: Theme}) => css`
   padding: 0 ${p.theme.sidebar.menuSpacing};
   position: relative;
   transition: 0.1s all linear;
-  ${(!!p.to || !!p.href) && 'overflow: hidden'};
+  ${!!p.to && 'overflow: hidden'};
 
   &:hover,
   &:active,

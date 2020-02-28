@@ -94,8 +94,7 @@ class SidebarItem extends React.Component {
         <StyledSidebarItem
           data-test-id={this.props['data-test-id']}
           active={isActive ? 'true' : undefined}
-          href={href}
-          to={to}
+          to={this.context.location && to ? to : href}
           className={className}
           onClick={this.handleClick}
         >
