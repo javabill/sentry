@@ -988,8 +988,8 @@ class IntervalDefault(NumberRange):
 FUNCTIONS = {
     "percentile": {
         "name": "percentile",
-        "args": [DurationColumn("column"), NumberRange("percentile", 0, 1)],
-        "transform": u"quantile({percentile:.2f})({column})",
+        "args": [DurationColumnNoLookup("column"), NumberRange("percentile", 0, 1)],
+        "aggregate": [u"quantile({percentile:.2f})", u"{column}", None],
     },
     "rps": {
         "name": "rps",
@@ -1160,6 +1160,7 @@ def resolve_function(field, match=None, params=None):
     elif "aggregate" in function:
         aggregate = deepcopy(function["aggregate"])
 
+        aggregate[0] = aggregate[0].format(**arguments)
         if isinstance(aggregate[1], six.string_types):
             aggregate[1] = aggregate[1].format(**arguments)
 
@@ -1211,6 +1212,12 @@ def resolve_orderby(orderby, fields, aggregations):
         if found:
             prefix = "-" if column.startswith("-") else ""
             validated.append(prefix + bare_column)
+            continue
+
+        if bare_column in FIELD_ALIASES and FIELD_ALIASES[bare_column].get("column_alias"):
+            prefix = "-" if column.startswith("-") else ""
+            validated.append(prefix + FIELD_ALIASES[bare_column]["column_alias"])
+            continue
 
         found = [col[2] for col in fields if isinstance(col, (list, tuple))]
         if found:
