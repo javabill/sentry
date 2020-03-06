@@ -355,6 +355,7 @@ def query(
     referrer=None,
     auto_fields=False,
     use_aggregate_conditions=False,
+    conditions=None,
 ):
     """
     High-level API for doing arbitrary user queries against events.
@@ -430,6 +431,9 @@ def query(
                     having_clause[0]
                 )
             )
+
+    if conditions is not None:
+        snuba_args["conditions"].extend(conditions)
 
     result = raw_query(
         start=snuba_args.get("start"),
