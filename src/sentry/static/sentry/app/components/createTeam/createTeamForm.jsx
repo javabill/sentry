@@ -3,6 +3,7 @@ import React from 'react';
 
 import {t} from 'app/locale';
 import Form from 'app/views/settings/components/forms/form';
+
 import SentryTypes from 'app/sentryTypes';
 import TextField from 'app/views/settings/components/forms/textField';
 import slugify from 'app/utils/slugify';
