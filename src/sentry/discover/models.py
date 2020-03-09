@@ -67,7 +67,7 @@ class KeyTransaction(Model):
 
     # max_length here is based on the maximum for transactions in relay
     transaction = models.CharField(max_length=200)
-    project = FlexibleForeignKey("sentry.Project")
+    project = FlexibleForeignKey("sentry.Project", db_constraint=False)
     owner = FlexibleForeignKey("sentry.User", null=True, on_delete=models.SET_NULL)
     organization = FlexibleForeignKey("sentry.Organization")
 
