@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 
 import {t} from 'app/locale';
 import Button from 'app/components/button';
-import EventWaiter from 'app/views/onboarding/projectSetup/eventWaiter';
+import EventWaiter from 'app/components/eventWaiter';
 import InlineSvg from 'app/components/inlineSvg';
 import space from 'app/styles/space';
 import testablePose from 'app/utils/testablePose';
