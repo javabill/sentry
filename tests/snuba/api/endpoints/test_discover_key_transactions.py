@@ -1,12 +1,15 @@
 from __future__ import absolute_import
 
+import pytz
 import six
 
 from django.core.urlresolvers import reverse
 
+from sentry.utils.compat.mock import patch
 from sentry.discover.models import KeyTransaction, MAX_KEY_TRANSACTIONS
 from sentry.utils.samples import load_data
 from sentry.testutils import APITestCase
+from sentry.testutils.helpers.datetime import iso_format, before_now
 
 
 class KeyTransactionTest(APITestCase):
@@ -120,9 +123,14 @@ class KeyTransactionTest(APITestCase):
             ]
         }
 
-    def test_get_key_transactions(self):
+    @patch("django.utils.timezone.now")
+    def test_get_key_transactions(self, mock_now):
+        mock_now.return_value = before_now().replace(tzinfo=pytz.utc)
         project2 = self.create_project(name="foo", organization=self.org)
         event_data = load_data("transaction")
+        start_timestamp = iso_format(before_now(minutes=1))
+        end_timestamp = iso_format(before_now(minutes=1))
+        event_data.update({"start_timestamp": start_timestamp, "timestamp": end_timestamp})
 
         transactions = [
             (self.project, "/foo_transaction/"),
@@ -169,11 +177,20 @@ class KeyTransactionTest(APITestCase):
             "/zoo_transaction/",
         ]
 
-    def test_get_transaction_with_quotes(self):
+    @patch("django.utils.timezone.now")
+    def test_get_transaction_with_quotes(self, mock_now):
+        mock_now.return_value = before_now().replace(tzinfo=pytz.utc)
+        start_timestamp = iso_format(before_now(minutes=1))
+        end_timestamp = iso_format(before_now(minutes=1))
         event_data = load_data("transaction")
-        event_data[
-            "transaction"
-        ] = "this is a \"transaction\" with 'quotes' \"\"to test\"\" ''what happens''"
+        event_data.update(
+            {
+                "transaction": "this is a \"transaction\" with 'quotes' \"\"to test\"\" ''what happens''",
+                "start_timestamp": start_timestamp,
+                "timestamp": end_timestamp,
+            }
+        )
+
         self.store_event(data=event_data, project_id=self.project.id)
         KeyTransaction.objects.create(
             owner=self.user,
@@ -205,9 +222,20 @@ class KeyTransactionTest(APITestCase):
         assert len(data) == 1
         assert data[0]["transaction"] == event_data["transaction"]
 
-    def test_get_transaction_with_backslash_and_quotes(self):
+    @patch("django.utils.timezone.now")
+    def test_get_transaction_with_backslash_and_quotes(self, mock_now):
+        mock_now.return_value = before_now().replace(tzinfo=pytz.utc)
+        start_timestamp = iso_format(before_now(minutes=1))
+        end_timestamp = iso_format(before_now(minutes=1))
         event_data = load_data("transaction")
-        event_data["transaction"] = "\\someth\"'ing\\"
+        event_data.update(
+            {
+                "transaction": "\\someth\"'ing\\",
+                "start_timestamp": start_timestamp,
+                "timestamp": end_timestamp,
+            }
+        )
+
         self.store_event(data=event_data, project_id=self.project.id)
         KeyTransaction.objects.create(
             owner=self.user,
