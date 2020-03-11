@@ -73,6 +73,9 @@ class KeyTransactionEndpoint(OrganizationEventsV2EndpointBase):
                             [
                                 [
                                     "equals",
+                                    # Without the outer ' here, the transaction will be treated as another column
+                                    # instead of a string. This isn't an injection risk since snuba is smart enough to
+                                    # handle escaping for us.
                                     ["transaction", u"'{}'".format(transaction.transaction)],
                                 ],
                                 ["equals", ["project_id", transaction.project.id]],
