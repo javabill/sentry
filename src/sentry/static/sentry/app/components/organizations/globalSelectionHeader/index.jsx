@@ -6,13 +6,11 @@ import partition from 'lodash/partition';
 import {withRouter} from 'react-router';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from '@emotion/styled';
 
 import {DATE_TIME_KEYS, URL_PARAM} from 'app/constants/globalSelectionHeader';
 import {DEFAULT_STATS_PERIOD} from 'app/constants';
 import {callIfFunction} from 'app/utils/callIfFunction';
 import {isEqualWithDates} from 'app/utils/isEqualWithDates';
-import {t} from 'app/locale';
 import {
   updateDateTime,
   updateEnvironments,
@@ -20,18 +18,14 @@ import {
   updateParamsWithoutHistory,
   updateProjects,
 } from 'app/actionCreators/globalSelection';
-import BackToIssues from 'app/components/organizations/backToIssues';
 import ConfigStore from 'app/stores/configStore';
 import HeaderItemPosition from 'app/components/organizations/headerItemPosition';
 import HeaderSeparator from 'app/components/organizations/headerSeparator';
-import InlineSvg from 'app/components/inlineSvg';
 import MultipleEnvironmentSelector from 'app/components/organizations/multipleEnvironmentSelector';
 import MultipleProjectSelector from 'app/components/organizations/multipleProjectSelector';
 import Projects from 'app/utils/projects';
 import SentryTypes from 'app/sentryTypes';
 import TimeRangeSelector from 'app/components/organizations/timeRangeSelector';
-import Tooltip from 'app/components/tooltip';
-import space from 'app/styles/space';
 import withGlobalSelection from 'app/utils/withGlobalSelection';
 import withProjects from 'app/utils/withProjects';
 
@@ -71,6 +65,12 @@ class GlobalSelectionHeader extends React.Component {
      * If a forced project is passed, selection is disabled
      */
     forceProject: SentryTypes.Project,
+
+    /**
+     * Funtion that returns a React element. It will be called whenever shouldForceProject
+     * is true.
+     */
+    renderBackButton: PropTypes.func,
 
     /**
      * Currently selected values(s)
@@ -514,21 +514,6 @@ class GlobalSelectionHeader extends React.Component {
       .map(getProjectIdFromProject)
       .slice(0, 1);
 
-  getBackButton = () => {
-    const {organization, location} = this.props;
-    return (
-      <BackButtonWrapper>
-        <Tooltip title={t('Back to Issues Stream')} position="bottom">
-          <BackToIssues
-            to={`/organizations/${organization.slug}/issues/${location.search}`}
-          >
-            <InlineSvg src="icon-arrow-left" />
-          </BackToIssues>
-        </Tooltip>
-      </BackButtonWrapper>
-    );
-  };
-
   scrollFetchDispatcher = debounce(
     (onSearch, options) => {
       onSearch(this.state.searchQuery, options);
@@ -563,6 +548,7 @@ class GlobalSelectionHeader extends React.Component {
       showDateSelector,
       showEnvironmentSelector,
       allowClearTimeRange,
+      renderBackButton,
     } = this.props;
     const {period, start, end, utc} = this.props.selection.datetime || {};
 
@@ -572,10 +558,12 @@ class GlobalSelectionHeader extends React.Component {
 
     const [memberProjects, nonMemberProjects] = this.getProjects();
 
+    const hasRenderBackButton = typeof renderBackButton === 'function';
+
     return (
       <Header className={className}>
         <HeaderItemPosition>
-          {shouldForceProject && this.getBackButton()}
+          {shouldForceProject && hasRenderBackButton && renderBackButton()}
           <Projects orgId={organization.slug} limit={PROJECTS_PER_PAGE} globalSelection>
             {({projects, initiallyLoaded, hasMore, onSearch, fetching}) => {
               const paginatedProjectSelectorCallbacks = {
@@ -663,11 +651,3 @@ class GlobalSelectionHeader extends React.Component {
 }
 
 export default withProjects(withRouter(withGlobalSelection(GlobalSelectionHeader)));
-
-const BackButtonWrapper = styled('div')`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  position: relative;
-  left: ${space(2)};
-`;

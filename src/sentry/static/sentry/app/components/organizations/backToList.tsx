@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 
 import space from 'app/styles/space';
 
-const BackToIssues = styled(Link)`
+const BackToList = styled(Link)`
   display: flex;
   width: ${space(1.5)};
   height: ${space(1.5)};
@@ -26,4 +26,4 @@ const BackToIssues = styled(Link)`
   }
 `;
 
-export default BackToIssues;
+export default BackToList;

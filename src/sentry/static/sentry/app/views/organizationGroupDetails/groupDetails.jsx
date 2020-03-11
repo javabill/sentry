@@ -6,6 +6,7 @@ import Reflux from 'reflux';
 import * as Sentry from '@sentry/browser';
 import createReactClass from 'create-react-class';
 import isEqual from 'lodash/isEqual';
+import styled from '@emotion/styled';
 
 import {PageContent} from 'app/styles/organization';
 import {t} from 'app/locale';
@@ -17,6 +18,10 @@ import Projects from 'app/utils/projects';
 import SentryTypes from 'app/sentryTypes';
 import profiler from 'app/utils/profiler';
 import withApi from 'app/utils/withApi';
+import {IconArrow} from 'app/icons';
+import BackToList from 'app/components/organizations/backToList';
+import space from 'app/styles/space';
+import Tooltip from 'app/components/tooltip';
 
 import {ERROR_TYPES} from './constants';
 import GroupHeader from './header';
@@ -248,6 +253,21 @@ const GroupDetails = createReactClass({
     return Content;
   },
 
+  renderBackButton() {
+    const {organization, location} = this.props;
+    return (
+      <BackButtonWrapper>
+        <Tooltip title={t('Back to Issues Stream')} position="bottom">
+          <BackToList
+            to={`/organizations/${organization.slug}/issues/${location.search}`}
+          >
+            <IconArrow direction="left" />
+          </BackToList>
+        </Tooltip>
+      </BackButtonWrapper>
+    );
+  },
+
   render() {
     const {organization, showGlobalHeader} = this.props;
     const {group, project, loading} = this.state;
@@ -275,6 +295,7 @@ const GroupDetails = createReactClass({
             forceProject={project}
             showDateSelector={false}
             shouldForceProject
+            renderBackButton={this.renderBackButton}
           />
         )}
         {isLoading ? (
@@ -304,3 +325,11 @@ const GroupDetails = createReactClass({
 export {GroupDetails};
 
 export default withApi(profiler()(GroupDetails));
+
+const BackButtonWrapper = styled('div')`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  left: ${space(2)};
+`;
