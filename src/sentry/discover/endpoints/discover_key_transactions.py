@@ -1,13 +1,14 @@
 from __future__ import absolute_import
 
+from django.db import transaction
 from rest_framework.response import Response
 
 from sentry import features
 from sentry.api.bases import OrganizationEventsV2EndpointBase
-from sentry.models import Project, ProjectStatus
 from sentry.api.bases.organization import OrganizationPermission
 from sentry.api.exceptions import ResourceDoesNotExist
-from sentry.discover.models import KeyTransaction, MAX_KEY_TRANSACTIONS
+from sentry.discover.models import KeyTransaction
+from sentry.discover.endpoints.serializers import KeyTransactionSerializer
 from sentry.snuba.discover import query
 
 
@@ -15,39 +16,31 @@ class KeyTransactionEndpoint(OrganizationEventsV2EndpointBase):
     permission_classes = (OrganizationPermission,)
 
     def has_feature(self, request, organization):
-        return features.has("organizations:discover", organization, actor=request.user)
-
-    def get_project(self, organization, project_id):
-        """ Get a project for an org, or None if one doesn't exist """
-        return Project.objects.filter(
-            organization=organization, status=ProjectStatus.VISIBLE, id=project_id
-        ).first()
+        return features.has("organizations:performance-view", organization, actor=request.user)
 
     def post(self, request, organization):
         """ Create A Key Transaction """
         if not self.has_feature(request, organization):
-            return self.response(status=404)
+            return Response(status=404)
 
-        project = self.get_project(organization, int(request.data["project"]))
+        projects = self.get_projects(request, organization)
 
-        if project is None:
-            return Response({"detail": "No project with that id found"}, status=400)
+        if len(projects) != 1:
+            return Response({"detail": "Only 1 project per Key Transaction"}, status=400)
+        project = projects[0]
 
         base_filter = {"organization": organization, "project": project, "owner": request.user}
 
-        # Limit the number of key transactions
-        if KeyTransaction.objects.filter(**base_filter).count() >= MAX_KEY_TRANSACTIONS:
-            return Response(
-                {"detail": "At most {} Key Transactions can be added".format(MAX_KEY_TRANSACTIONS)},
-                status=400,
-            )
+        with transaction.atomic():
+            serializer = KeyTransactionSerializer(data=request.data, context=base_filter)
+            if serializer.is_valid():
+                data = serializer.validated_data
+                base_filter["transaction"] = data["transaction"]
 
-        base_filter["transaction"] = request.data["transaction"]
-        if KeyTransaction.objects.filter(**base_filter).count() == 1:
-            return Response({"detail": "This Key Transaction was already added"}, status=400)
-
-        KeyTransaction.objects.create(**base_filter)
-        return Response(status=201)
+                KeyTransaction.objects.create(**base_filter)
+                return Response(status=201)
+            else:
+                return Response(serializer.errors, status=400)
 
     def get(self, request, organization):
         """ Get the paged Key Transactions for a user """
@@ -103,7 +96,12 @@ class KeyTransactionEndpoint(OrganizationEventsV2EndpointBase):
         if not self.has_feature(request, organization):
             return self.response(status=404)
 
-        project = self.get_project(organization, int(request.data["project"]))
+        projects = self.get_projects(request, organization)
+
+        if len(projects) != 1:
+            return Response({"detail": "Only 1 project per Key Transaction"}, status=400)
+        project = projects[0]
+
         transaction = request.data["transaction"]
 
         try:
