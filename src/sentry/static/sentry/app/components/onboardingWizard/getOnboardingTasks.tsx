@@ -1,7 +1,24 @@
+import React from 'react';
+import styled from '@emotion/styled';
+
 import {t} from 'app/locale';
 import {openInviteMembersModal} from 'app/actionCreators/modal';
 import {sourceMaps} from 'app/data/platformCategories';
-import {Organization, OnboardingTaskDescriptor, OnboardingTaskKey} from 'app/types';
+import {
+  Organization,
+  OnboardingTaskDescriptor,
+  OnboardingTaskKey,
+  OnboardingTask,
+  Project,
+  OnboardingSupplementComponentProps,
+} from 'app/types';
+import withApi from 'app/utils/withApi';
+import {Client} from 'app/api';
+import withProjects from 'app/utils/withProjects';
+import EventWaiter from 'app/components/eventWaiter';
+import {taskIsDone} from 'app/components/onboardingWizard/utils';
+import pulsingIndicatorStyles from 'app/styles/pulsingIndicator';
+import space from 'app/styles/space';
 
 function hasPlatformWithSourceMaps(organization: Organization): boolean {
   if (!organization || !organization.projects) {
@@ -10,7 +27,12 @@ function hasPlatformWithSourceMaps(organization: Organization): boolean {
   return organization.projects.some(({platform}) => sourceMaps.includes(platform));
 }
 
-export default function getOnboardingTasks(
+type FirstEventWaiterProps = OnboardingSupplementComponentProps & {
+  api: Client;
+  projects: Project[];
+};
+
+export function getOnboardingTasks(
   organization: Organization
 ): OnboardingTaskDescriptor[] {
   return [
@@ -30,13 +52,29 @@ export default function getOnboardingTasks(
     {
       task: OnboardingTaskKey.FIRST_EVENT,
       title: t('Send your first event'),
-      description: t("Install Sentry's client"),
+      description: t('Install the appropraite Sentry SDK for application'),
       detailedDescription: t('Choose your platform and send an event.'),
       skippable: false,
       requisites: [OnboardingTaskKey.FIRST_PROJECT],
       actionType: 'app',
       location: `/settings/${organization.slug}/projects/:projectId/install/`,
       display: true,
+      SupplementComponent: withProjects(
+        withApi(({api, task, projects, completeTask}: FirstEventWaiterProps) =>
+          projects.length > 0 &&
+          task.requisiteTasks.length === 0 &&
+          !task.completionSeen ? (
+            <EventWaiter
+              api={api}
+              organization={organization}
+              project={projects[0]}
+              onIssueRecieved={() => !taskIsDone(task) && completeTask()}
+            >
+              {() => <EventWaitingIndicator />}
+            </EventWaiter>
+          ) : null
+        )
+      ),
     },
     {
       task: OnboardingTaskKey.INVITE_MEMBER,
@@ -142,3 +180,45 @@ export default function getOnboardingTasks(
     },
   ];
 }
+
+export function getMergedTasks(organization: Organization) {
+  const taskDescriptors = getOnboardingTasks(organization);
+  const serverTasks = organization.onboardingTasks;
+
+  // Map server task state (i.e. completed status) with tasks objects
+  const allTasks = taskDescriptors.map(
+    desc =>
+      ({
+        ...desc,
+        ...serverTasks.find(serverTask => serverTask.task === desc.task),
+        requisiteTasks: [],
+      } as OnboardingTask)
+  );
+
+  // Map incomplete requisiteTasks as full task objects
+  return allTasks.map(task => ({
+    ...task,
+    requisiteTasks: task.requisites
+      .map(key => allTasks.find(task2 => task2.task === key)!)
+      .filter(reqTask => reqTask.status !== 'complete'),
+  }));
+}
+
+const PulsingIndicator = styled('div')`
+  ${pulsingIndicatorStyles};
+`;
+
+const EventWaitingIndicator = styled(p => (
+  <div {...p}>
+    {t('Waiting for first event')}
+    <PulsingIndicator />
+  </div>
+))`
+  font-size: ${p => p.theme.fontSizeSmall};
+  color: ${p => p.theme.gray4};
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: ${space(1)};
+  align-items: center;
+  line-height: 1rem;
+`;

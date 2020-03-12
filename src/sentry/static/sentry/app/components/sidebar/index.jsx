@@ -44,6 +44,7 @@ import {getSidebarPanelContainer} from './sidebarPanel';
 import Broadcasts from './broadcasts';
 import ServiceIncidents from './serviceIncidents';
 import OnboardingStatus from './onboardingStatus';
+import LegacyOnboardingStatus from './legacyOnboardingStatus';
 import SidebarDropdown from './sidebarDropdown';
 import SidebarHelp from './help';
 import SidebarItem from './sidebarItem';
@@ -548,6 +549,19 @@ class Sidebar extends React.Component {
 
         {hasOrganization && (
           <SidebarSectionGroup>
+            {window.localStorage.getItem('NEW_ONBOARDING_SIDEBAR') && !horizontal && (
+              <SidebarSection noMargin noPadding>
+                <OnboardingStatus
+                  org={organization}
+                  currentPanel={currentPanel}
+                  onShowPanel={() => this.togglePanel('todos')}
+                  showPanel={showPanel}
+                  hidePanel={this.hidePanel}
+                  collapsed={collapsed}
+                />
+              </SidebarSection>
+            )}
+
             <SidebarSection>
               {HookStore.get('sidebar:bottom-items').length > 0 &&
                 HookStore.get('sidebar:bottom-items')[0]({
@@ -579,9 +593,9 @@ class Sidebar extends React.Component {
               />
             </SidebarSection>
 
-            {!horizontal && (
+            {!window.localStorage.getItem('NEW_ONBOARDING_SIDEBAR') && !horizontal && (
               <SidebarSection noMargin>
-                <OnboardingStatus
+                <LegacyOnboardingStatus
                   org={organization}
                   currentPanel={currentPanel}
                   onShowPanel={() => this.togglePanel('todos')}
@@ -728,7 +742,7 @@ const PrimaryItems = styled('div')`
 
 const SidebarSection = styled(SidebarSectionGroup)`
   ${p => !p.noMargin && `margin: ${space(1)} 0`};
-  padding: 0 19px;
+  ${p => !p.noPadding && 'padding: 0 19px'};
 
   @media (max-width: ${p => p.theme.breakpoints[0]}) {
     margin: 0;

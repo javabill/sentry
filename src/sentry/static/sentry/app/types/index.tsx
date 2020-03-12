@@ -919,6 +919,11 @@ export enum OnboardingTaskKey {
   ALERT_RULE = 'setup_alert_rules',
 }
 
+export type OnboardingSupplementComponentProps = {
+  task: OnboardingTask;
+  completeTask: () => void;
+};
+
 export type OnboardingTaskDescriptor = {
   task: OnboardingTaskKey;
   title: string;
@@ -937,6 +942,10 @@ export type OnboardingTaskDescriptor = {
    * Should the onboarding task currently be displayed
    */
   display: boolean;
+  /**
+   * An extra component that may be rendered within the onboarding task item.
+   */
+  SupplementComponent?: React.ComponentType<OnboardingSupplementComponentProps>;
 } & (
   | {
       actionType: 'app' | 'external';
@@ -957,7 +966,14 @@ export type OnboardingTaskStatus = {
   data?: object;
 };
 
-export type OnboardingTask = OnboardingTaskStatus & OnboardingTaskDescriptor;
+export type OnboardingTask = OnboardingTaskStatus &
+  OnboardingTaskDescriptor & {
+    /**
+     * Onboarding tasks that are currently incomplete and must be completed
+     * before this task should be completed.
+     */
+    requisiteTasks: OnboardingTask[];
+  };
 
 export type Tag = {
   name: string;
