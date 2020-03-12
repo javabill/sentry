@@ -2,6 +2,7 @@ from __future__ import absolute_import
 
 from django.db import transaction
 from rest_framework.response import Response
+from rest_framework.exceptions import ParseError
 
 from sentry import features
 from sentry.api.bases import OrganizationEventsV2EndpointBase
@@ -18,16 +19,19 @@ class KeyTransactionEndpoint(OrganizationEventsV2EndpointBase):
     def has_feature(self, request, organization):
         return features.has("organizations:performance-view", organization, actor=request.user)
 
-    def post(self, request, organization):
-        """ Create A Key Transaction """
-        if not self.has_feature(request, organization):
-            return Response(status=404)
-
+    def get_project(self, request, organization):
         projects = self.get_projects(request, organization)
 
         if len(projects) != 1:
-            return Response({"detail": "Only 1 project per Key Transaction"}, status=400)
-        project = projects[0]
+            raise ParseError("Only 1 project per Key Transaction")
+        return projects[0]
+
+    def post(self, request, organization):
+        """ Create a Key Transaction """
+        if not self.has_feature(request, organization):
+            return Response(status=404)
+
+        project = self.get_project(request, organization)
 
         base_filter = {"organization": organization, "project": project, "owner": request.user}
 
@@ -43,7 +47,7 @@ class KeyTransactionEndpoint(OrganizationEventsV2EndpointBase):
                 return Response(serializer.errors, status=400)
 
     def get(self, request, organization):
-        """ Get the paged Key Transactions for a user """
+        """ Get the Key Transactions for a user """
         if not self.has_feature(request, organization):
             return self.response(status=404)
 
@@ -99,12 +103,7 @@ class KeyTransactionEndpoint(OrganizationEventsV2EndpointBase):
         if not self.has_feature(request, organization):
             return self.response(status=404)
 
-        projects = self.get_projects(request, organization)
-
-        if len(projects) != 1:
-            return Response({"detail": "Only 1 project per Key Transaction"}, status=400)
-        project = projects[0]
-
+        project = self.get_project(request, organization)
         transaction = request.data["transaction"]
 
         try:
