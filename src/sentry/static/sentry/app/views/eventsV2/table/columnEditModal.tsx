@@ -53,10 +53,10 @@ class ColumnEditModal extends React.Component<Props, State> {
         </Body>
         <Footer>
           <ButtonBar gap={1}>
-            <Button priority="default" to={DISCOVER2_DOCS_URL}>
+            <Button priority="default" href={DISCOVER2_DOCS_URL}>
               {t('Read the Docs')}
             </Button>
-            <Button priority="primary" onClick={this.handleApply}>
+            <Button label={t('Apply')} priority="primary" onClick={this.handleApply}>
               {t('Apply')}
             </Button>
           </ButtonBar>

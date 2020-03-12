@@ -71,7 +71,7 @@ class CreateProject extends React.Component {
       organization.experiments?.AlertDefaultsExperiment;
     const isInAlertDefaultsExperiment = [
       '2OptionsV1',
-      '3OptionsV1',
+      '3OptionsV2',
       'controlV1',
     ].includes(alertDefaultsExperimentVariant);
 
@@ -88,7 +88,7 @@ class CreateProject extends React.Component {
     const analyticsEventOptions = {
       eventKey: 'new_project.visited',
       eventName: 'New Project Page Visited',
-      org_id: parseInt(this.props.organization.id, 10),
+      organization_id: parseInt(this.props.organization.id, 10),
     };
     if (isInAlertDefaultsExperiment) {
       analyticsEventOptions.alert_defaults_experiment_variant = alertDefaultsExperimentVariant;
