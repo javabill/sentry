@@ -5018,7 +5018,6 @@ msgid ""
 "\n"
 "            To enroll your U2F device insert it now or tap the button on it\n"
 "            to activate it.\n"
-"          "
 msgstr "\n Pour enregistrer votre dispositif U2F, insérez-le maintenant ou appuyez sur le bouton\n pour l'activer.\n"
 
 #: static/sentry/app/components/u2finterface.jsx:147
@@ -5026,8 +5025,7 @@ msgid ""
 "\n"
 "             Unfortunately your browser does not support U2F. You need to use\n"
 "             a different two-factor method or switch to a browser that supports\n"
-"             it (Google Chrome or Microsoft Edge).\n"
-"            "
+"             it (Google Chrome or Microsoft Edge)."
 msgstr "\n Malheureusement, votre navigateur ne prend pas en charge l'U2F. Vous devez utiliser\n une autre méthode d'authentification à deux facteurs ou passer à un navigateur qui prend en charge l'U2F\n (Google Chrome ou Microsoft Edge)."
 
 #: static/sentry/app/components/u2finterface.jsx:170
@@ -7025,7 +7023,6 @@ msgid ""
 "          but we can't tell you which versions they belong to.  This happens\n"
 "          if you upload them with an old verison of sentry-cli or if sentry-cli\n"
 "          can't locate the Info.plist file at the time of upload.\n"
-"        "
 msgstr "\n Cette liste regroupe tous les fichiers d'information de débogage qui ne sont pas attribués à une\n version d'application. Nous retrouverons toujours ces symboles de débogage pour la symbolisation,\n mais nous ne pourrons pas vous dire à quelles versions ils appartiennent. Cela se produit\n lorsque vous les importez avec une ancienne version de sentry-cli ou lorsque sentry-cli\n ne parvient pas à localiser le fichier Info.plist au moment de l'importation.\n"
 
 #: static/sentry/app/views/projectDebugSymbols.jsx:355
@@ -7201,7 +7198,6 @@ msgid ""
 "             This is a quick getting started guide. For in-depth instructions\n"
 "             on integrating Sentry with [integration], view\n"
 "             [docLink:our complete documentation].\n"
-"            "
 msgstr "\n Ceci est un guide de démarrage rapide. Pour des instructions détaillées\n sur l'intégration de Sentry avec [integration], consultez\n [docLink:our complete documentation].\n"
 
 #: static/sentry/app/views/projectIssueTracking.jsx:44
